@@ -1,6 +1,0 @@
-C:\git\ForumStartup\Forum.Infra\bin\Debug\Forum.Infra.dll
-C:\git\ForumStartup\Forum.Infra\bin\Debug\Forum.Infra.pdb
-C:\git\ForumStartup\Forum.Infra\obj\Debug\Forum.Infra.csprojResolveAssemblyReference.cache
-C:\git\ForumStartup\Forum.Infra\obj\Debug\Forum.Infra.csproj.CoreCompileInputs.cache
-C:\git\ForumStartup\Forum.Infra\obj\Debug\Forum.Infra.dll
-C:\git\ForumStartup\Forum.Infra\obj\Debug\Forum.Infra.pdb

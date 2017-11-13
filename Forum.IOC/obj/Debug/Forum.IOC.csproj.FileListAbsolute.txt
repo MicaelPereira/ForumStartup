@@ -1,8 +1,0 @@
-C:\git\ForumStartup\Forum.IOC\bin\Debug\Forum.IOC.dll
-C:\git\ForumStartup\Forum.IOC\bin\Debug\Forum.IOC.pdb
-C:\git\ForumStartup\Forum.IOC\bin\Debug\SimpleInjector.dll
-C:\git\ForumStartup\Forum.IOC\bin\Debug\SimpleInjector.xml
-C:\git\ForumStartup\Forum.IOC\obj\Debug\Forum.IOC.csprojResolveAssemblyReference.cache
-C:\git\ForumStartup\Forum.IOC\obj\Debug\Forum.IOC.csproj.CoreCompileInputs.cache
-C:\git\ForumStartup\Forum.IOC\obj\Debug\Forum.IOC.dll
-C:\git\ForumStartup\Forum.IOC\obj\Debug\Forum.IOC.pdb
