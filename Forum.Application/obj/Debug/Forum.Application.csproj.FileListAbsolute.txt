@@ -1,0 +1,6 @@
+C:\git\ForumStartup\Forum.Application\bin\Debug\Forum.Application.dll
+C:\git\ForumStartup\Forum.Application\bin\Debug\Forum.Application.pdb
+C:\git\ForumStartup\Forum.Application\obj\Debug\Forum.Application.csprojResolveAssemblyReference.cache
+C:\git\ForumStartup\Forum.Application\obj\Debug\Forum.Application.csproj.CoreCompileInputs.cache
+C:\git\ForumStartup\Forum.Application\obj\Debug\Forum.Application.dll
+C:\git\ForumStartup\Forum.Application\obj\Debug\Forum.Application.pdb

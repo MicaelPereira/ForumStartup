@@ -1,0 +1,6 @@
+C:\git\ForumStartup\Forum.Domain\bin\Debug\Forum.Domain.dll
+C:\git\ForumStartup\Forum.Domain\bin\Debug\Forum.Domain.pdb
+C:\git\ForumStartup\Forum.Domain\obj\Debug\Forum.Domain.csprojResolveAssemblyReference.cache
+C:\git\ForumStartup\Forum.Domain\obj\Debug\Forum.Domain.csproj.CoreCompileInputs.cache
+C:\git\ForumStartup\Forum.Domain\obj\Debug\Forum.Domain.dll
+C:\git\ForumStartup\Forum.Domain\obj\Debug\Forum.Domain.pdb
