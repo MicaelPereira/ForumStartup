@@ -59,9 +59,13 @@
     <Compile Include="Interfaces\Services\IServiceAnswerPost.cs" />
     <Compile Include="Interfaces\Services\IServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ServiceUser.cs" />
+    <Compile Include="Services\ServiceStartupOnPost.cs" />
+    <Compile Include="Services\ServiceStartup.cs" />
+    <Compile Include="Services\ServicePost.cs" />
+    <Compile Include="Services\ServiceAnswerPost.cs" />
+    <Compile Include="Services\ServiceBase.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
