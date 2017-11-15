@@ -9,6 +9,7 @@ namespace Forum.Application.Interface
 {
     public interface IAppPost : IAppBase<Post>
     {
-
+        Post GetWithAnswers(int id);
+        IEnumerable<Post> GetMainPost();
     }
 }

@@ -9,6 +9,6 @@ namespace Forum.Domain.Interfaces.Repositories
 {
     public interface IRepositoryAnswerPost : IRepositoryBase<AnswerPost>
     {
-        
+        IEnumerable<AnswerPost> GetAnswerSpecificPost(int idPost);
     }
 }

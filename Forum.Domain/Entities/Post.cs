@@ -11,7 +11,7 @@ namespace Forum.Domain.Entities
         public virtual string Title { get; set; }
         public virtual string Body { get; set; }
         public virtual User User { get; set; }
-
+        public virtual TypeOfPost TypeOfPost { get; set; }
         public virtual IList<AnswerPost> AnswersPost { get; set; }
 
         public virtual bool CanEditPost(int UserId)

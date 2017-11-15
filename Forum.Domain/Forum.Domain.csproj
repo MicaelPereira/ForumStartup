@@ -46,6 +46,7 @@
     <Compile Include="Entities\Post.cs" />
     <Compile Include="Entities\Startup.cs" />
     <Compile Include="Entities\StartupOnPost.cs" />
+    <Compile Include="Entities\TypeOfPost.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
     <Compile Include="Interfaces\Repositories\IRepositoryAnswerPost.cs" />

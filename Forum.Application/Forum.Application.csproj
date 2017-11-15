@@ -41,8 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppBase.cs" />
+    <Compile Include="AppAnswerPost.cs" />
     <Compile Include="AppPost.cs" />
     <Compile Include="AppUser.cs" />
+    <Compile Include="Interface\IAppAnswerPost.cs" />
     <Compile Include="Interface\IAppPost.cs" />
     <Compile Include="Interface\IAppUser.cs" />
     <Compile Include="Interface\IAppBase.cs" />

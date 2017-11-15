@@ -57,6 +57,7 @@
     <Compile Include="Map\PostMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="Repositories\RepositoryAnswerPost.cs" />
     <Compile Include="Repositories\RepositoryPost.cs" />
     <Compile Include="Repositories\RepositoryUser.cs" />
   </ItemGroup>

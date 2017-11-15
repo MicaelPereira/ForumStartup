@@ -27,6 +27,9 @@ namespace Forum.IOC
             container.Register<IServicePost, ServicePost>(Lifestyle.Singleton);
             container.Register<IRepositoryPost, RepositoryPost>(Lifestyle.Singleton);
 
+            container.Register<IAppAnswerPost, AppAnswerPost>(Lifestyle.Singleton);
+            container.Register<IServiceAnswerPost, ServiceAnswerPost>(Lifestyle.Singleton);
+            container.Register<IRepositoryAnswerPost, RepositoryAnswerPost>(Lifestyle.Singleton);
 
             container.Verify();
 

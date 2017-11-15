@@ -20,8 +20,8 @@ namespace Forum.Presentation.Models
             this.Id = answerPost.Id;
             this.CreatedDate = answerPost.CreatedDate;
             this.UpdatedDate = answerPost.UpdatedDate;
-            this.MainPost = new Post(answerPost.MainPost);
-            this.Answer = new Post(answerPost.Answer);
+            this.MainPost = new Post(answerPost.MainPost, true); //new Post { Id = answerPost.MainPost.Id };
+            this.Answer = new Post(answerPost.Answer, true);
         }
         public Post MainPost { get; set; }
         public Post Answer { get; set; }
@@ -29,7 +29,7 @@ namespace Forum.Presentation.Models
 
         public static IEnumerable<AnswerPost> ParseListDomainToPresentation(IEnumerable<domain.AnswerPost> AnswersPosts)
         {
-            List<AnswerPost> lst = new List<AnswerPost>();
+            IList<AnswerPost> lst = new List<AnswerPost>();
             if (AnswersPosts != null)
             {
                 foreach (var item in AnswersPosts)

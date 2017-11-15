@@ -9,6 +9,6 @@ namespace Forum.Domain.Interfaces.Repositories
 {
     public interface IRepositoryPost : IRepositoryBase<Post>
     {
-        
+        Post GetWithAnswers(int id);
     }
 }

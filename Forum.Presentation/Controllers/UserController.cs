@@ -120,7 +120,7 @@ namespace Forum.Presentation.Controllers
                 user = appUser.LoginUser(user.Email, user.Password);
                 Session["UserID"] = user.Id;
                 //HttpContext.Cache.Insert("UserID", user.Id);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Post");
             }
             catch(Exception err)
             {

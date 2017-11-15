@@ -17,5 +17,15 @@ namespace Forum.Application
         {
             _servicePost= servicePost;
         }
+
+        public IEnumerable<Post> GetMainPost()
+        {
+            return _servicePost.GetMainPost();
+        }
+
+        public Post GetWithAnswers(int id)
+        {
+            return _servicePost.GetWithAnswers(id);
+        }
     }
 }

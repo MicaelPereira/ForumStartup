@@ -9,6 +9,7 @@ namespace Forum.Domain.Interfaces.Services
 {
     public interface IServicePost : IServiceBase<Post>
     {
-        
+        Post GetWithAnswers(int id);
+        IEnumerable<Post> GetMainPost();
     }
 }

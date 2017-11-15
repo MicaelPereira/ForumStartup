@@ -17,10 +17,11 @@ namespace Forum.Infra.Map
             Map(x => x.CreatedDate);
             Map(x => x.Title);
             Map(x => x.UpdatedDate);
-
+            Map(x => x.TypeOfPost).CustomType<TypeOfPost>();
             References(x => x.User);
 
-            HasMany(x => x.AnswersPost).Inverse();            
+            HasMany(x => x.AnswersPost);            
+
         }
     }
 }

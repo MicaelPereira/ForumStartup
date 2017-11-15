@@ -20,14 +20,8 @@ namespace Forum.Domain.Services
 
         public TEntity Add(TEntity obj)
         {
-            using (var scope = new TransactionScope())
-            {
-                _repository.Add(obj);
-
-                scope.Complete();
-            }
-            return obj;
-            
+            _repository.Add(obj);             
+            return obj;            
         }
 
         public TEntity GetById(int id)

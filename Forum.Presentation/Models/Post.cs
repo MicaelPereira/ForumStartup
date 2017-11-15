@@ -14,23 +14,29 @@ namespace Forum.Presentation.Models
 
         }
 
-        public Post(domain.Post post)
+        public Post(domain.Post post, bool withoutAnswer = false)
         {
             this.Id = post.Id;
             this.CreatedDate = post.CreatedDate;
             this.UpdatedDate = post.UpdatedDate;
-            if (post.AnswersPost != null && post.AnswersPost.Count > 0)
+            this.AnswersPost = new List<AnswerPost>();
+            if (!withoutAnswer && post.AnswersPost != null && post.AnswersPost.Count > 0)
                 this.AnswersPost.AddRange(AnswerPost.ParseListDomainToPresentation(post.AnswersPost));
             this.Body = post.Body;
             this.Title = post.Title;
             this.User = new User(post.User);
         }
 
-        public Post(domain.Post post, object userID)
+        public Post(domain.Post post, object userID, bool overrideUser = false)
             : this(post)
-        {
-            if(userID != null)
+        {            
+            if (userID != null)
+            {
+                if(overrideUser)
+                    this.User = new User { Id = int.Parse(userID.ToString()) };
                 this.CanEdit = post.CanEditPost(int.Parse(userID.ToString()));
+            }
+                
         }
 
         public Post(object userID)

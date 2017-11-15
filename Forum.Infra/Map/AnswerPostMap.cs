@@ -16,8 +16,9 @@ namespace Forum.Infra.Map
             Map(x => x.CreatedDate);            
             Map(x => x.UpdatedDate);
 
-            References(x => x.Answer);
             References(x => x.MainPost);
+            References(x => x.Answer);
+            
         }
     }
 }

@@ -12,15 +12,19 @@ namespace Forum.Presentation.Controllers
     public class PostController : Controller
     {
         IAppPost appPost;
-        public PostController(IAppPost appPost)
+        IAppAnswerPost appAnswerPost;
+        IAppUser appUser;
+        public PostController(IAppPost appPost, IAppAnswerPost appAnswerPost, IAppUser appUser)
         {
             this.appPost = appPost;
+            this.appAnswerPost = appAnswerPost;
+            this.appUser = appUser;
         }
 
         // GET: Post
         public ActionResult Index()
         {
-            var posts = presentation.Post.ParseListDomainToPresentation(appPost.GetAll(), Session["UserID"]);
+            var posts = presentation.Post.ParseListDomainToPresentation(appPost.GetMainPost(), Session["UserID"]);
             return View(posts);
         }
 
@@ -31,7 +35,7 @@ namespace Forum.Presentation.Controllers
             if (user == null)
                 return RedirectToAction("Login", "User");
             
-            return View(new presentation.Post(appPost.GetById(id)));
+            return View(new presentation.Post(appPost.GetWithAnswers(id), user, true));
         }
 
         // POST: Post/Edit/5
@@ -42,23 +46,25 @@ namespace Forum.Presentation.Controllers
             {
                 domain.Post objCreate = new domain.Post();
                 objCreate.CreatedDate = DateTime.Now;
-                objCreate.Title = collection.Get("Title");
-                objCreate.Body = collection.Get("Body");
-                objCreate.User = new domain.User { Id = int.Parse(collection.Get("User.Id")) };
-
+                objCreate.Title = "Answer";
+                objCreate.Body = collection.Get("answer");
+                objCreate.User = this.appUser.GetById(int.Parse(collection.Get("User.Id")));
+                objCreate.TypeOfPost = domain.TypeOfPost.Answer;
+                appPost.Add(objCreate);
+                
                 domain.Post obj = new domain.Post();
                 obj = appPost.GetById(id);
                 obj.UpdatedDate = DateTime.Now;
-                obj.Title = collection.Get("Title");
-                obj.Body = collection.Get("Body");
-                obj.AnswersPost.Add(new domain.AnswerPost { CreatedDate = DateTime.Now, Answer = objCreate, MainPost = obj });
-                appPost.Update(obj);
 
-                return RedirectToAction("Index");
+                appAnswerPost.Add(new domain.AnswerPost { CreatedDate = DateTime.Now, Answer = objCreate, MainPost = obj });
+
+                obj.AnswersPost.Add(new domain.AnswerPost { CreatedDate = DateTime.Now, Answer = objCreate, MainPost = obj });
+                
+                return View(new presentation.Post(obj));
             }
             catch (Exception err)
             {
-                return View();
+                return View("index");
             }
         }
         // GET: Post/Create
@@ -82,6 +88,7 @@ namespace Forum.Presentation.Controllers
                 obj.Title = collection.Get("Title");
                 obj.Body = collection.Get("Body");
                 obj.User = new domain.User { Id = int.Parse(collection.Get("User.Id")) };
+                obj.TypeOfPost = domain.TypeOfPost.Main;
                 
                 appPost.Add(obj);
 
@@ -96,7 +103,7 @@ namespace Forum.Presentation.Controllers
         // GET: Post/Edit/5
         public ActionResult Edit(int id)
         {
-            return View(new presentation.Post(appPost.GetById(id), Session["UserID"]));
+            return View(new presentation.Post(appPost.GetById(id), Session["UserID"], true));
         }
 
         // POST: Post/Edit/5

@@ -15,7 +15,11 @@ namespace Forum.Infra.Repositories
 
         public void Add(TEntity obj)
         {
-            Db.Save(obj);
+            using (ITransaction transaction = Db.BeginTransaction())
+            {
+                Db.Save(obj);
+                transaction.Commit();
+            }
         }
 
         public TEntity GetById(int id)
