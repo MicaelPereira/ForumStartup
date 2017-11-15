@@ -30,12 +30,13 @@
                         <p>
                             @Html.DisplayFor(modelItem => item.Body)
                         </p>
-                        @Html.ActionLink("(Details)", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("(Details)", "Details", new { id = item.Id }) 
                         @if (item.CanEdit)
                         {
+                            <span>|</span>
                             @Html.ActionLink("(Edit)", "Edit", new { id = item.Id }) 
                             <span>|</span>
-                            @Html.ActionLink("(Delete)", "Delete", new { id = item.Id })
+                            @Html.ActionLink("(Delete)", "Delete", new { id = item.Id }, new { @id = "btnDelete" })
                         }                        
                     </div>
 
@@ -48,3 +49,12 @@
         <p><b>Nenhum post!</b></p>
     }
 </div>
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            $("#btnDelete").click(function () {
+                return window.confirm("You realy want delete this post?");
+            });
+        });
+    </script>
+}

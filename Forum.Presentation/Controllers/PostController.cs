@@ -91,23 +91,8 @@ namespace Forum.Presentation.Controllers
         // GET: Post/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        // POST: Post/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            appPost.Remove(new domain.Post { Id = id });
+            return RedirectToAction("Index");
         }
     }
 }
