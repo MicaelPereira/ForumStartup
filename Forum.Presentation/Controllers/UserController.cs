@@ -118,7 +118,8 @@ namespace Forum.Presentation.Controllers
                 user.Email = collection.Get("Email");
 
                 user = appUser.LoginUser(user.Email, user.Password);
-                HttpContext.Cache.Insert("UserID", user.Id);
+                Session["UserID"] = user.Id;
+                //HttpContext.Cache.Insert("UserID", user.Id);
                 return RedirectToAction("Index");
             }
             catch(Exception err)

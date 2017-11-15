@@ -20,20 +20,24 @@ namespace Forum.Presentation.Controllers
         // GET: Post
         public ActionResult Index()
         {
-            var posts = presentation.Post.ParseListDomainToPresentation(appPost.GetAll());
+            var posts = presentation.Post.ParseListDomainToPresentation(appPost.GetAll(), Session["UserID"]);
             return View(posts);
         }
 
         // GET: Post/Details/5
         public ActionResult Details(int id)
         {
+            var user = Session["UserID"];
+            if (user == null)
+                return RedirectToAction("Login", "User");
+
             return View();
         }
 
         // GET: Post/Create
         public ActionResult Create()
         {
-            var user = HttpContext.Cache.Get("UserID");
+            var user = Session["UserID"];
             if (user == null)
                 return RedirectToAction("Login", "User");
             

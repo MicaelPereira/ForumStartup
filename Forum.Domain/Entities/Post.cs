@@ -14,5 +14,9 @@ namespace Forum.Domain.Entities
 
         public virtual IList<AnswerPost> AnswersPost { get; set; }
 
+        public virtual bool CanEditPost(int UserId)
+        {
+            return User.Id == UserId && (this.AnswersPost == null || this.AnswersPost.Count <= 0);
+        }
     }
 }
