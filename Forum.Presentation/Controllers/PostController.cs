@@ -30,10 +30,37 @@ namespace Forum.Presentation.Controllers
             var user = Session["UserID"];
             if (user == null)
                 return RedirectToAction("Login", "User");
-
-            return View();
+            
+            return View(new presentation.Post(appPost.GetById(id)));
         }
 
+        // POST: Post/Edit/5
+        [HttpPost]
+        public ActionResult Details(int id, FormCollection collection)
+        {
+            try
+            {
+                domain.Post objCreate = new domain.Post();
+                objCreate.CreatedDate = DateTime.Now;
+                objCreate.Title = collection.Get("Title");
+                objCreate.Body = collection.Get("Body");
+                objCreate.User = new domain.User { Id = int.Parse(collection.Get("User.Id")) };
+
+                domain.Post obj = new domain.Post();
+                obj = appPost.GetById(id);
+                obj.UpdatedDate = DateTime.Now;
+                obj.Title = collection.Get("Title");
+                obj.Body = collection.Get("Body");
+                obj.AnswersPost.Add(new domain.AnswerPost { CreatedDate = DateTime.Now, Answer = objCreate, MainPost = obj });
+                appPost.Update(obj);
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception err)
+            {
+                return View();
+            }
+        }
         // GET: Post/Create
         public ActionResult Create()
         {
@@ -69,7 +96,7 @@ namespace Forum.Presentation.Controllers
         // GET: Post/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(new presentation.Post(appPost.GetById(id), Session["UserID"]));
         }
 
         // POST: Post/Edit/5
@@ -78,11 +105,16 @@ namespace Forum.Presentation.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                domain.Post obj = new domain.Post();
+                obj = appPost.GetById(id);
+                obj.UpdatedDate = DateTime.Now;
+                obj.Title = collection.Get("Title");
+                obj.Body = collection.Get("Body");                
+                appPost.Update(obj);
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception err)
             {
                 return View();
             }
@@ -91,7 +123,9 @@ namespace Forum.Presentation.Controllers
         // GET: Post/Delete/5
         public ActionResult Delete(int id)
         {
-            appPost.Remove(new domain.Post { Id = id });
+            domain.Post obj = new domain.Post();
+            obj = appPost.GetById(id);
+            appPost.Remove(obj);
             return RedirectToAction("Index");
         }
     }

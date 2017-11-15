@@ -30,12 +30,20 @@ namespace Forum.Infra.Repositories
 
         public void Update(TEntity obj)
         {
-            Db.Update(obj);
+            using(ITransaction transaction = Db.BeginTransaction())
+            {
+                Db.Update(obj);
+                transaction.Commit();
+            }            
         }
 
         public void Remove(TEntity obj)
         {
-            Db.Delete(obj);
+            using (ITransaction transaction = Db.BeginTransaction())
+            {
+                Db.Delete(obj);
+                transaction.Commit();
+            }            
         }
 
         public void Dispose()
