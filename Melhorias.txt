@@ -1,0 +1,11 @@
+melhorias forum:
+colocar senha usu cripto.
+Permitir o usuário trocar de senha.
+
+
+TODO:
+Criar post
+Login usuário
+Permissão editar post
+Permissão excluir post
+

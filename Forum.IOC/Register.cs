@@ -1,4 +1,10 @@
-﻿using SimpleInjector;
+﻿using Forum.Application;
+using Forum.Application.Interface;
+using Forum.Domain.Interfaces.Repositories;
+using Forum.Domain.Interfaces.Services;
+using Forum.Domain.Services;
+using Forum.Infra.Repositories;
+using SimpleInjector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,26 +19,19 @@ namespace Forum.IOC
         {
             var container = new Container();
             
-            container.Register<IUserService, UserService>(Lifestyle.Transient);
-            //container.Register<IUserRepository, SqlUserRepository>(Lifestyle.Singleton);
+            container.Register<IAppUser, AppUser>(Lifestyle.Singleton);
+            container.Register<IServiceUser, ServiceUser>(Lifestyle.Singleton);
+            container.Register<IRepositoryUser, RepositoryUser>(Lifestyle.Singleton);
+
+            container.Register<IAppPost, AppPost>(Lifestyle.Singleton);
+            container.Register<IServicePost, ServicePost>(Lifestyle.Singleton);
+            container.Register<IRepositoryPost, RepositoryPost>(Lifestyle.Singleton);
+
 
             container.Verify();
 
             return container;
         }
 
-    }
-    //TODO: Take off
-    internal interface IUserService
-    {
-        void test();
-    }
-
-    internal class UserService : IUserService
-    {
-        public void test()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

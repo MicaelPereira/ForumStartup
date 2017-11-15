@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Forum.Domain.Entities
 {
-    public class AnswerPost
+    public class AnswerPost : Base
     {
         public virtual Post MainPost { get; set; }
         public virtual Post Answer { get; set; }
-
     }
 }

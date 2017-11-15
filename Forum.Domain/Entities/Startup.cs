@@ -8,7 +8,7 @@ namespace Forum.Domain.Entities
 {
     public class Startup : Base
     {
-        public string Name { get; set; }
+        public virtual string Name { get; set; }
 
     }
 }

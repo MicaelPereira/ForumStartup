@@ -50,5 +50,19 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Forum.Application\Forum.Application.csproj">
+      <Project>{F778733A-0451-4F95-ACF1-F6C443CB32A8}</Project>
+      <Name>Forum.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Forum.Domain\Forum.Domain.csproj">
+      <Project>{A4485094-BDA1-44B3-82DE-AF40E3559D62}</Project>
+      <Name>Forum.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Forum.Infra\Forum.Infra.csproj">
+      <Project>{E878F320-B346-4BBB-8D3A-FB0900EC92C1}</Project>
+      <Name>Forum.Infra</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

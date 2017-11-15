@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace Forum.Domain.Services
 {
@@ -19,7 +20,14 @@ namespace Forum.Domain.Services
 
         public TEntity Add(TEntity obj)
         {
-            return _repository.Add(obj);
+            using (var scope = new TransactionScope())
+            {
+                _repository.Add(obj);
+
+                scope.Complete();
+            }
+            return obj;
+            
         }
 
         public TEntity GetById(int id)

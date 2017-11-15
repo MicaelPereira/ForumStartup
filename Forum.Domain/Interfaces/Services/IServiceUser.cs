@@ -9,6 +9,6 @@ namespace Forum.Domain.Interfaces.Services
 {
     public interface IServiceUser : IServiceBase<User>
     {
-        
+        User LoginUser(string email, string password);
     }
 }

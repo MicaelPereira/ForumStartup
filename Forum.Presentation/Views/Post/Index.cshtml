@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Forum.Presentation.Models.Post>
+
+@{
+    ViewBag.Title = "Forum Startup";
+}
+
+<div class="jumbotron">
+    <h1 class="text-center">Startup Forum</h1>
+    <p class="lead text-center">Welcome to the main Startup Forum</p>
+</div>
+<p>
+    @Html.ActionLink("Create New", "Create", "" , new { @class= "btn btn-danger" })
+</p>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+
+                        <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
+                        <p><b>@((item.CreatedDate)) | Created by:</b> @Html.DisplayFor(modelItem => item.User.Name)</p>
+                        <p></p>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+
+                        </p>
+                        <p>
+                            @Html.DisplayFor(modelItem => item.Body)
+                        </p>
+                        @Html.ActionLink("(Details)", "Details", new { id = item.Id })
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+    @if (Model.Count() == 0)
+    {
+        <p><b>Nenhum post!</b></p>
+    }
+</div>

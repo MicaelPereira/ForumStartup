@@ -8,11 +8,11 @@ namespace Forum.Domain.Entities
 {
     public class Post : Base
     {
-        public string Title { get; set; }
-        public string Body { get; set; }
+        public virtual string Title { get; set; }
+        public virtual string Body { get; set; }
         public virtual User User { get; set; }
 
-        public virtual List<AnswerPost> AnswersPost { get; set; }
+        public virtual IList<AnswerPost> AnswersPost { get; set; }
 
     }
 }

@@ -13,6 +13,9 @@ namespace Forum.Domain.Services
             _repositoryUser = repositoryUser;
         }
 
-
+        public User LoginUser(string email, string password)
+        {
+            return _repositoryUser.LoginUser(email, password);
+        }
     }
 }

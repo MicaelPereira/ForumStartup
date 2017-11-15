@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Forum.Domain.Interfaces.Repositories
+namespace Forum.Application.Interface
 {
-    public interface IRepositoryBase<TEntity> where TEntity : class
+    public interface IAppBase<TEntity> where TEntity : class
     {
-        void Add(TEntity obj);
+        TEntity Add(TEntity obj);
         TEntity GetById(int id);
         IEnumerable<TEntity> GetAll();
         void Update(TEntity obj);

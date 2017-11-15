@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Forum.Domain.Interfaces.Repositories
+namespace Forum.Application.Interface
 {
-    public interface IRepositoryUser : IRepositoryBase<User>
+    public interface IAppPost : IAppBase<Post>
     {
-        User LoginUser(string email, string password);
+
     }
 }

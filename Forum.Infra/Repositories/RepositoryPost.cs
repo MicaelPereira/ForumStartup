@@ -1,14 +1,14 @@
 ﻿using Forum.Domain.Entities;
+using Forum.Domain.Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Forum.Domain.Interfaces.Repositories
+namespace Forum.Infra.Repositories
 {
-    public interface IRepositoryUser : IRepositoryBase<User>
+    public class RepositoryPost : RepositoryBase<Post>, IRepositoryPost
     {
-        User LoginUser(string email, string password);
     }
 }
