@@ -9,6 +9,6 @@ namespace Forum.Domain.Interfaces.Services
 {
     public interface IServiceStartup : IServiceBase<Startup>
     {
-        
+        ICollection<Startup> GetStartups();
     }
 }

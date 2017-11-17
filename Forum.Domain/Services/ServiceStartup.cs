@@ -1,4 +1,5 @@
-﻿using Forum.Domain.Entities;
+﻿using System.Collections.Generic;
+using Forum.Domain.Entities;
 using Forum.Domain.Interfaces.Repositories;
 using Forum.Domain.Interfaces.Services;
 
@@ -13,6 +14,10 @@ namespace Forum.Domain.Services
             _repositoryStartup = repositoryStartup;
         }
 
-
+        public ICollection<Startup> GetStartups()
+        {
+            Startup startup = new Startup();
+            return startup.Startups();
+        }
     }
 }

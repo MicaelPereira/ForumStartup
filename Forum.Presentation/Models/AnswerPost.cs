@@ -23,6 +23,14 @@ namespace Forum.Presentation.Models
             this.MainPost = new Post(answerPost.MainPost, true); //new Post { Id = answerPost.MainPost.Id };
             this.Answer = new Post(answerPost.Answer, true);
         }
+        public AnswerPost(domain.AnswerPost answerPost, object user)
+        {
+            this.Id = answerPost.Id;
+            this.CreatedDate = answerPost.CreatedDate;
+            this.UpdatedDate = answerPost.UpdatedDate;
+            this.MainPost = new Post(answerPost.MainPost, true); //new Post { Id = answerPost.MainPost.Id };
+            this.Answer = new Post(answerPost.Answer, true) { User = new User { Id = int.Parse(user.ToString()) } };
+        }
         public Post MainPost { get; set; }
         public Post Answer { get; set; }
 

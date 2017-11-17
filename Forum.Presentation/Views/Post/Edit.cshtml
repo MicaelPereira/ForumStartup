@@ -7,7 +7,7 @@
 <h2>Edit</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm(Html.BeginForm(null, null, FormMethod.Post, new { id = "formEdit" })))
 {
     @Html.AntiForgeryToken()
     
@@ -49,4 +49,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript" src="~/Scripts/Business/Post/Edit.js"></script>
 }

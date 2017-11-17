@@ -44,6 +44,7 @@ namespace Forum.Presentation.Controllers
         {
             try
             {
+                //TODO: Use transaction
                 domain.Post objCreate = new domain.Post();
                 objCreate.CreatedDate = DateTime.Now;
                 objCreate.Title = "Answer";
@@ -51,7 +52,7 @@ namespace Forum.Presentation.Controllers
                 objCreate.User = this.appUser.GetById(int.Parse(collection.Get("User.Id")));
                 objCreate.TypeOfPost = domain.TypeOfPost.Answer;
                 appPost.Add(objCreate);
-                
+
                 domain.Post obj = new domain.Post();
                 obj = appPost.GetById(id);
                 obj.UpdatedDate = DateTime.Now;
@@ -59,8 +60,10 @@ namespace Forum.Presentation.Controllers
                 appAnswerPost.Add(new domain.AnswerPost { CreatedDate = DateTime.Now, Answer = objCreate, MainPost = obj });
 
                 obj.AnswersPost.Add(new domain.AnswerPost { CreatedDate = DateTime.Now, Answer = objCreate, MainPost = obj });
-                
+
                 return View(new presentation.Post(obj));
+                
+                
             }
             catch (Exception err)
             {

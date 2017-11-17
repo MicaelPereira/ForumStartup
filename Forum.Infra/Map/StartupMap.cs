@@ -13,7 +13,10 @@ namespace Forum.Infra.Map
         public StartupMap()
         {
             Id(x => x.Id).GeneratedBy.SequenceIdentity();
-            Map(x => x.Name);
+            Map(x => x.Title);
+            Map(x => x.Location);
+            Map(x => x.Overview);
+            Map(x => x.TypeOfStartup);
             Map(x => x.CreatedDate);
             Map(x => x.UpdatedDate);
         }

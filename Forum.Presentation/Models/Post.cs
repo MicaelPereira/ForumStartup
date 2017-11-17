@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,8 +44,10 @@ namespace Forum.Presentation.Models
         {
             this.User = new User { Id = int.Parse(userID.ToString()) };
         }
-
+        
         public string Title { get; set; }
+        [Required()]
+        [StringLength(255)]
         public string Body { get; set; }
         public User User { get; set; }
         public bool CanEdit { get; set; }

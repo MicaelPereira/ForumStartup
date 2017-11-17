@@ -4,8 +4,16 @@ Permitir o usuário trocar de senha.
 
 
 TODO:
-Criar post
-Login usuário
+Criar post -OK
+Login usuário -OK
 Permissão editar post
 Permissão excluir post
+Comentar outros posts
 
+? O post deverá conter um título, corpo, data do mesmo e usuário criador. OK
+? Um post pode ter uma ou varias respostas, e assim sucessivamente para toda a cadeia
+de respostas.
+? Todo mundo que acessar a página poderá visualizar todos os posts, porém apenas os
+usuários cadastrados poderão responder/criar posts. 
+? O post só poderá ser editado/apagado pelo seu criador. OK
+? O post só poderá ser editado/apagado caso não tenha nenhuma resposta. OK
